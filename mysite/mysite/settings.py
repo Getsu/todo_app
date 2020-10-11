@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+# print(load_dotenv())
+
+
 # プロジェクト内にパスを作成
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -23,7 +28,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # 秘密鍵
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*e2&0p8x@al898g&mwl*r16&8@dol&^k@4da!(u7v4^w=4z8mg'
+SECRET_KEY = os.getenv('SECRET_KEY')
+# print(SECRET_KEY)
+
+
 
 # デバッグモードの有効化
 # SECURITY WARNING: don't run with debug turned on in production!
